@@ -1,36 +1,37 @@
 <template>
-  <div class="controls">
-    <h2>Call overview</h2>
-    <hr />
-    <h3>Invite participants</h3>
-    <label for="urlInput">Share URL below to invite others</label>
-    <div>
-      <!-- Room URL to copy and share -->
-      <input type="text" id="urlInput" :value="roomUrl" />
-      <button @click="copyUrl" class="teal">{{ copyButtonText }}</button>
-    </div>
-    <hr />
-    <h3>Example custom controls</h3>
-    <p>
-      You can also create your own meeting controls using daily-js methods
-    </p>
-    <div>
-      <button @click="toggleCamera">Toggle camera</button>
-      <button @click="toggleMic">Toggle mic</button>
-      <button @click="toggleScreenShare">Toggle screen share</button>
-      <button @click="expandFullscreen">Expand fullscreen</button>
-      <button @click="toggleLocalVideo">
-        {{ localVideoText }} local video
-      </button>
-      <button @click="toggleRemoteParticipants">
-        {{ remoteVideoText }} remote participants (Speaker view only)
-      </button>
-      <button @click="leaveCall">
-        Leave call
-      </button>
-    </div>
-  </div>
+<!--  <div class="controls">-->
+<!--    <h2>Call overview</h2>-->
+<!--    <hr />-->
+<!--    <h3>Invite participants</h3>-->
+<!--    <label for="urlInput">Share URL below to invite others</label>-->
+<!--    <div>-->
+<!--      &lt;!&ndash; Room URL to copy and share &ndash;&gt;-->
+<!--      <input type="text" id="urlInput" :value="roomUrl" />-->
+<!--      <button @click="copyUrl" class="teal">{{ copyButtonText }}</button>-->
+<!--    </div>-->
+<!--    <hr />-->
+<!--    <h3>Example custom controls</h3>-->
+<!--    <p>-->
+<!--      You can also create your own meeting controls using daily-js methods-->
+<!--    </p>-->
+<!--    <div>-->
+<!--      <button @click="toggleCamera">Toggle camera</button>-->
+<!--      <button @click="toggleMic">Toggle mic</button>-->
+<!--      <button @click="toggleScreenShare">Toggle screen share</button>-->
+<!--      <button @click="expandFullscreen">Expand fullscreen</button>-->
+<!--      <button @click="toggleLocalVideo">-->
+<!--        {{ localVideoText }} local video-->
+<!--      </button>-->
+<!--      <button @click="toggleRemoteParticipants">-->
+<!--        {{ remoteVideoText }} remote participants (Speaker view only)-->
+<!--      </button>-->
+<!--      <button @click="leaveCall">-->
+<!--        Leave call-->
+<!--      </button>-->
+<!--    </div>-->
+<!--  </div>-->
 </template>
+
 
 <script>
 export default {
@@ -49,12 +50,12 @@ export default {
         return;
       }
       navigator.clipboard.writeText(text).then(
-        function() {
-          console.log("Async: Copying to clipboard was successful!");
-        },
-        function(err) {
-          console.error("Async: Could not copy text: ", err);
-        }
+          function() {
+            console.log("Async: Copying to clipboard was successful!");
+          },
+          function(err) {
+            console.error("Async: Could not copy text: ", err);
+          }
       );
     },
     copyUrl() {
@@ -95,26 +96,38 @@ export default {
 };
 </script>
 
+
 <style scoped>
-.controls {
-  padding: 24px;
-  text-align: left;
-  max-width: 400px;
+.header-container {
+  background-color: var(--white);
+  border-bottom: 1px solid var(--grey);
+  padding: 0 24px;
 }
-.controls h2,
-.controls h3 {
-  font-weight: bold;
+h1 {
   font-size: 16px;
-  margin-top: 0px;
 }
-.controls p {
-  font-size: 14px;
+.wrapper {
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
+  padding: 4px 0 4px 24px;
 }
-.controls label {
-  font-size: 14px;
-  margin-bottom: 8px;
+.logo {
+  width: 60px;
+  height: 24px;
+  margin-right: 24px;
 }
-.controls button {
+.divider {
+  background: var(--grey);
+  margin: 0 16px;
+  display: block;
+  height: 32px;
+  width: 1px;
+}
+.icon {
+  width: 24px;
+}
+a.buttonish {
   color: var(--dark-blue);
   background: var(--white);
   border: 1px solid var(--grey);
@@ -124,31 +137,9 @@ export default {
   line-height: 16px;
   font-weight: bold;
   cursor: pointer;
-  margin-right: 4px;
-  margin-bottom: 8px;
+  text-decoration: none;
 }
-.controls button:active {
+a.buttonish:active {
   background: var(--grey-lightest);
-}
-.controls button.teal {
-  background: var(--teal);
-  margin-bottom: 0;
-  width: 100px;
-}
-.controls button.teal:active {
-  opacity: 0.7;
-}
-.controls input {
-  margin-right: 8px;
-  margin-top: 8px;
-  margin-bottom: 8px;
-  height: 32px;
-  border-radius: 8px;
-  border: 1px solid var(--grey);
-  min-width: 200px;
-  padding: 0 8px;
-}
-.controls hr {
-  border-top: 1px solid var(--grey);
 }
 </style>
